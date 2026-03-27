@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f8fc;
+  --foreground: #1f2933;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+body {
+  background:
+    radial-gradient(circle at 14% 12%, #d9efff 0%, transparent 45%),
+    radial-gradient(circle at 88% 10%, #eef3f7 0%, transparent 42%),
+    linear-gradient(180deg, #fafdff 0%, #eef3f7 100%);
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), sans-serif;
+}
+
+* {
+  border-color: #dbe4ec;
+}
+
+.sales-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #b8d9ef #edf3f8;
+}
+
+.sales-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sales-scroll::-webkit-scrollbar-track {
+  background: #edf3f8;
+  border-radius: 999px;
+}
+
+.sales-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c6e6f8 0%, #b8d9ef 100%);
+  border: 2px solid #edf3f8;
+  border-radius: 999px;
+}
+
+.sales-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #b8dff5 0%, #a9cfe7 100%);
+}
