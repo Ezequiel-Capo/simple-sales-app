@@ -18,6 +18,8 @@ interface SalesTableProps {
   showScoreValue?: boolean;
 }
 
+const formatCreatedAt = (value: string): string => value.replace("T", " ").slice(0, 19);
+
 export const SalesTable = ({ sales, onScoreSelect, disabled, showScoreValue = false }: SalesTableProps) => {
   if (sales.length === 0) {
     return <p className="text-sm text-zinc-600">No hay ventas registradas todavía.</p>;
@@ -40,7 +42,7 @@ export const SalesTable = ({ sales, onScoreSelect, disabled, showScoreValue = fa
             <TableCell className="font-semibold">{sale.customer}</TableCell>
             <TableCell>{sale.product}</TableCell>
             <TableCell>${sale.amount.toFixed(2)}</TableCell>
-            <TableCell>{new Date(sale.createdAt).toLocaleString()}</TableCell>
+            <TableCell>{formatCreatedAt(sale.createdAt)}</TableCell>
             <TableCell>
               {showScoreValue && (
                 <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-zinc-500">
